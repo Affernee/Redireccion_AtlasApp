@@ -9,7 +9,7 @@
         // Obtén los parámetros de la URL (por ejemplo: ?suscripcion=pro&session_id=...)
         const params = window.location.search;
         // Usa el scheme correcto de tu app
-        window.location.href = "atlas-solutions-app" + params;
+        window.location.href = "atlas-solutions-app://" + params;
       }, 1000);
     </script>
     <style>
@@ -47,7 +47,7 @@
     <script>
       // También permite redirección manual si el navegador lo bloquea
       document.getElementById('manual-link').href =
-        "atlas-solutions-app" + window.location.search;
+        "atlas-solutions-app://" + window.location.search;
     </script>
   </body>
 </html>
