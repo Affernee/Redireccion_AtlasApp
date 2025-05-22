@@ -1,1 +1,53 @@
-
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirigiendo a la app...</title>
+    <script>
+      // Espera un segundo para mostrar el mensaje antes de redirigir
+      setTimeout(() => {
+        // Obtén los parámetros de la URL (por ejemplo: ?suscripcion=pro&session_id=...)
+        const params = window.location.search;
+        // Usa el scheme correcto de tu app
+        window.location.href = "atlas-solutions-app" + params;
+      }, 1000);
+    </script>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f9fafb;
+        color: #22223b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .loader {
+        border: 6px solid #e0e0e0;
+        border-top: 6px solid #10b981;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 24px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(360deg);}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"></div>
+    <h2>Redirigiendo a la app...</h2>
+    <p>Si no eres redirigido automáticamente,<br>
+      <a id="manual-link" href="#">haz clic aquí</a>
+    </p>
+    <script>
+      // También permite redirección manual si el navegador lo bloquea
+      document.getElementById('manual-link').href =
+        "atlas-solutions-app" + window.location.search;
+    </script>
+  </body>
+</html>
