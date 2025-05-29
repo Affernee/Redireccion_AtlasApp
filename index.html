@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redirigiendo a la app...</title>
+    <title>Redirecting to the app...</title>
     <style>
       body {
         font-family: sans-serif;
@@ -33,55 +33,4 @@
         padding: 12px 28px;
         border-radius: 8px;
         border: none;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .btn-app {
-        background: #10b981;
-        color: #fff;
-      }
-      .btn-app:hover {
-        background: #059669;
-      }
-      .btn-web {
-        background: #fff;
-        color: #22223b;
-        border: 2px solid #10b981;
-      }
-      .btn-web:hover {
-        background: #f0fdfa;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="loader"></div>
-    <h2>Redirigiendo a la app...</h2>
-    <p>Si no eres redirigido automáticamente, elige una opción:</p>
-    <div>
-      <button class="btn btn-app" id="open-app">Abrir en la app</button>
-      <button class="btn btn-web" id="open-web">Ir a la web</button>
-    </div>
-    <script>
-      const params = window.location.search;
-      // Cambia esta URL por la de tu web si es diferente
-      const webUrl = "https://www.atlassolutions.marketing/" + params;
-
-      // Redirección automática a la app después de 1 segundo
-      setTimeout(() => {
-        window.location.href = "atlas-solutions-app://" + params;
-      }, 1000);
-
-      // Botón para abrir la app
-      document.getElementById('open-app').onclick = function() {
-        window.location.href = "atlas-solutions-app://" + params;
-      };
-
-      // Botón para ir a la web
-      document.getElementById('open-web').onclick = function() {
-        window.location.href = webUrl;
-      };
-    </script>
-  </body>
-</html>
+        font-size: 16px
