@@ -3,15 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Redirigiendo a la app...</title>
-    <script>
-      // Espera un segundo para mostrar el mensaje antes de redirigir
-      setTimeout(() => {
-        // Obtén los parámetros de la URL (por ejemplo: ?suscripcion=pro&session_id=...)
-        const params = window.location.search;
-        // Usa el scheme correcto de tu app
-        window.location.href = "atlas-solutions-app://" + params;
-      }, 1000);
-    </script>
     <style>
       body {
         font-family: sans-serif;
@@ -36,18 +27,61 @@
         0% { transform: rotate(0deg);}
         100% { transform: rotate(360deg);}
       }
+      .btn {
+        display: inline-block;
+        margin: 12px 8px 0 8px;
+        padding: 12px 28px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn-app {
+        background: #10b981;
+        color: #fff;
+      }
+      .btn-app:hover {
+        background: #059669;
+      }
+      .btn-web {
+        background: #fff;
+        color: #22223b;
+        border: 2px solid #10b981;
+      }
+      .btn-web:hover {
+        background: #f0fdfa;
+      }
     </style>
   </head>
   <body>
     <div class="loader"></div>
     <h2>Redirigiendo a la app...</h2>
-    <p>Si no eres redirigido automáticamente,<br>
-      <a id="manual-link" href="#">haz clic aquí</a>
-    </p>
+    <p>Si no eres redirigido automáticamente, elige una opción:</p>
+    <div>
+      <button class="btn btn-app" id="open-app">Abrir en la app</button>
+      <button class="btn btn-web" id="open-web">Ir a la web</button>
+    </div>
     <script>
-      // También permite redirección manual si el navegador lo bloquea
-      document.getElementById('manual-link').href =
-        "atlas-solutions-app://" + window.location.search;
+      const params = window.location.search;
+      // Cambia esta URL por la de tu web si es diferente
+      const webUrl = "https://www.atlassolutions.marketing/" + params;
+
+      // Redirección automática a la app después de 1 segundo
+      setTimeout(() => {
+        window.location.href = "atlas-solutions-app://" + params;
+      }, 1000);
+
+      // Botón para abrir la app
+      document.getElementById('open-app').onclick = function() {
+        window.location.href = "atlas-solutions-app://" + params;
+      };
+
+      // Botón para ir a la web
+      document.getElementById('open-web').onclick = function() {
+        window.location.href = webUrl;
+      };
     </script>
   </body>
 </html>
